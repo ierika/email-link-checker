@@ -27,11 +27,10 @@ You could export its path and change permission to make it executable.
 ```shell
 $ chmod u+x linkchecker.py
 $ echo 'export PATH=${PATH}:/path/to/linkchecker' >> ~/.bash_profile
+$ source ~/.bash_profile
 ```
 
-OR
-
-Just execute it directly.
+...or, Just execute it directly.
 
 ```shell
 python3 linkchecker.py path/to/html/file
