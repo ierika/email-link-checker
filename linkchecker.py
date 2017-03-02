@@ -5,6 +5,7 @@ It's time to move on. Ditch Python2.
 import sys
 import os
 import re
+import subprocess
 from urllib.request import urlopen
 
 from bs4 import BeautifulSoup
@@ -71,6 +72,11 @@ def get_url_content(url):
         exit(2)
     except:
         print(Prompter('URL Exception').error())
+        # if result is an error. Open the URL at the browser.
+        # Macs only since Linux open commands varies per distro.
+        uname = subprocess.check_output('uname', shell=True)
+        if 'Darwin' in str(uname):
+            os.system('open -g {}'.format(url))
         return None
     return html
 
