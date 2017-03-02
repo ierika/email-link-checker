@@ -45,15 +45,13 @@ def main(args):
         print('Please provide a URL or a file')
         exit(1)
     bsObj = None
-    if (args.startswith('http://') or
-        args.startswith('https://')):
+    if args.startswith('http://'):
         print(Prompter('Checking links from a URL').message())
         html = get_url_content(args)
     elif os.path.isfile(args):
         print(Prompter('Checking links from a file').message())
         with open(args, 'r') as f:
             html = f.read()
-            bsObj = BeautifulSoup(html, "html.parser")
     else:
         print('{} is not a valid URL or file').format(args)
         exit(1)
