@@ -2,7 +2,7 @@ A simple command-line link checker.
 It could only check only one HTML or one URL at a time, to avoid chaos.
 
 What it does are:
-- Check the link on an HTML document from file or a URL.
+- Checks all anchor tags in an HTML document (from file or a URL).
 - Opens the link with an error in the browser, so we could double check. If it is
   really working or not.
 
