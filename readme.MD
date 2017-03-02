@@ -48,5 +48,5 @@ python3 linkchecker path/to/html/file
 ```
 
 ```shell
-python3 linkchecker.py https://path/to/web/page
+python3 linkchecker https://path/to/web/page
 ```
