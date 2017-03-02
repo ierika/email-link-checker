@@ -15,7 +15,7 @@ $ curl https://bootstrap.pypa.io/get-pip.py | python3
 ```
 3. Install requirements from `requirements.txt`.
 ```
-$ python3 install -r requirements.txt
+$ python3 -m pip install -r requirements.txt
 ```
 
 ## How to use
