@@ -27,7 +27,7 @@ $ python3 -m pip install -r requirements.txt
 ```
 
 ## How to use
-You could export its path and change permission to make it executable.
+You could export its path and change permission to make it executable. 
 
 ```shell
 $ chmod u+x linkchecker.py
@@ -35,10 +35,16 @@ $ echo 'export PATH=${PATH}:/path/to/linkchecker' >> ~/.bash_profile
 $ source ~/.bash_profile
 ```
 
+After the PATH has been exported. We could now execute it anywhere.
+
+```shell
+$ linkchecker /path/to/html/or/link/to/page
+```
+
 ...or, Just execute it directly.
 
 ```shell
-python3 linkchecker.py path/to/html/file
+python3 linkchecker path/to/html/file
 ```
 
 ```shell
