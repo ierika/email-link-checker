@@ -3,6 +3,9 @@ It could only check only one HTML or one URL at a time, to avoid chaos.
 
 This tool will also be used in Email Alert Helper tool. Once integrated, this repo will be erased.
 
+Working but still undergoing enhancements.
+Support for non HTML docs will also be added.
+
 ## How to install
 
 1. Download [_Python 3_](https://www.python.org/downloads/)
