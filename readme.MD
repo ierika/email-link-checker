@@ -13,7 +13,7 @@ Support for non HTML docs will also be added.
 
 ## How to install
 
-1. Download [_Python 3_](https://www.python.org/downloads/)
+1. Download and install [_Python 3_](https://www.python.org/downloads/)
 2. Once Python 3 has been installed. Install PIP(a Python package management system).
 
 ```shell
