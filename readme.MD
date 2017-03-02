@@ -1,5 +1,5 @@
 A simple command-line link checker.
-It could only check only one HTML or one URL at a time, to avoid chaos.
+It could only check only one HTML page at a time, to avoid chaos.
 
 What it does are:
 - Checks all anchor tags in an HTML document (from file or a URL).
