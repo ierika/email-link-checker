@@ -53,7 +53,7 @@ def main(args):
         with open(args, 'r') as f:
             html = f.read()
     else:
-        print('{} is not a valid URL or file').format(args)
+        print(Prompter('{} is not a valid URL or file.'.format(args)).error())
         exit(1)
 
     bsObj = BeautifulSoup(html, "html.parser")
