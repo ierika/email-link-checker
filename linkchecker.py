@@ -23,19 +23,14 @@ class Prompter:
 
     def __init__(self, text):
         self.text = text
-
     def error(self):
         return self.FAIL + self.text + self.ENDC
-
     def success(self):
         return self.OKGREEN + self.text + self.ENDC
-
     def warning(self):
         return self.WARNING + self.text + self.ENDC
-
     def message(self):
         return self.OKBLUE + self.text + self.ENDC
-
 
 def main(args):
     check_requirements()
@@ -117,5 +112,4 @@ def get_urls(bsObj):
         exit(1)
     return links
 
-# Process files only one at a time for now
 main(sys.argv)
