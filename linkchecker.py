@@ -6,6 +6,7 @@ import sys
 import os
 import re
 import subprocess
+import webbrowser
 from urllib.request import urlopen
 
 from bs4 import BeautifulSoup
@@ -60,17 +61,11 @@ def get_url_content(url):
     html = None
     try:
         html = urlopen(url)
-        # print('URL Passed')
     except KeyboardInterrupt as e:
         print(Prompter('Aborting...').error())
         exit(2)
     except:
-        # print(Prompter('URL Exception').error())
-        # if result is an error. Open the URL at the browser.
-        # Macs only since Linux open commands varies per distro.
-        uname = subprocess.check_output('uname', shell=True)
-        if 'Darwin' in str(uname):
-            os.system('open -g {}'.format(url))
+        webbrowser.open_new_tab(url)
         return None
     return html
 
@@ -83,22 +78,14 @@ def clear_screen():
     os.system('clear')
 
 def check_urls(urls):
-    # results = []
     for url in urls:
-        # print(Prompter('Checking - {}'.format(url)).message())
         html = get_url_content(url)
         if html:
-            # results.append(Prompter(url).success())
             print(Prompter(url).success())
         else:
-            # results.append(Prompter(url).error())
             print(Prompter(url).error())
-        # clear_screen()
-        # for result in results:
-        #     print(result)
 
 def get_urls(bsObj):
-    # Extract links
     bs_links = bsObj.findAll('a')
     links = []
     if len(bs_links) > 0:
