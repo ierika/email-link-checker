@@ -9,7 +9,9 @@ What it does are:
 This tool will also be used in Email Alert Helper tool. Once integrated, this repo will be erased.
 
 Working but still undergoing enhancements.
-Support for non HTML docs will also be added.
+Support for non-HTML docs will also be added.
+
+* Checking SSL(HTTPS) encrypted pages is not supported.
 
 ## How to install
 
@@ -52,5 +54,5 @@ $ python3 linkchecker path/to/html/file
 
 ```shell
 $ cd /path/to/linkchecker/directory
-$ python3 linkchecker https://path/to/web/page
+$ python3 linkchecker http://path/to/web/page
 ```
