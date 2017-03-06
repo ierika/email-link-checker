@@ -5,7 +5,6 @@ It's time to move on. Ditch Python2.
 import sys
 import os
 import re
-import subprocess
 import webbrowser
 from urllib.request import urlopen
 
@@ -25,7 +24,7 @@ class Prompter:
     def __init__(self, text):
         self.text = text
     def error(self):
-        return self.FAIL + self.text + self.ENDC
+        return self.FAIL + 'ERROR: ' + self.text + self.ENDC
     def success(self):
         return self.OKGREEN + self.text + self.ENDC
     def warning(self):
