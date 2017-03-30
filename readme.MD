@@ -10,19 +10,24 @@ This tool will also be used in Email Alert Helper tool. Once integrated, this re
 
 Working but still undergoing enhancements.
 Support for non-HTML docs will also be added.
+Supports HTTPS if certificates are installed.
 
-* Checking SSL(HTTPS) encrypted pages is not supported.
 
 ## How to install
 
 1. Download and install [_Python 3_](https://www.python.org/downloads/)
-2. Once Python 3 has been installed. Install PIP(a Python package management system).
+
+2. Install certificate for HTTPS support (optional). HTTPS pages will show as error if not installed.
+   For Macs: Go to `/Applications/Python 3.6/` and double click the executable called `Install Certificates.command`.
+   For other OS's: Gooogle it.
+
+3. Once Python 3 has been installed. Install PIP(a Python package management system).
 
 ```shell
 $ curl https://bootstrap.pypa.io/get-pip.py | python3
 ```
 
-3. Install requirements from `requirements.txt`.
+4. Install requirements from `requirements.txt`.
 
 ```shell
 $ cd /path/to/linkchecker/directory
