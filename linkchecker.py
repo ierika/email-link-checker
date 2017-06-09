@@ -4,7 +4,6 @@ It's time to move on. Ditch Python2.
 '''
 import sys
 import os
-import re
 import webbrowser
 from urllib.request import urlopen
 
@@ -23,14 +22,19 @@ class Prompter:
 
     def __init__(self, text):
         self.text = text
+
     def error(self):
         return self.FAIL + 'ERROR: ' + self.text + self.ENDC
+
     def success(self):
         return self.OKGREEN + self.text + self.ENDC
+
     def warning(self):
         return self.WARNING + self.text + self.ENDC
+
     def message(self):
         return self.OKBLUE + self.text + self.ENDC
+
 
 def main(args):
     check_requirements()
@@ -56,6 +60,7 @@ def main(args):
     check_urls(urls)
     print(Prompter('Done').message())
 
+
 def get_url_content(url):
     html = None
     try:
@@ -68,13 +73,16 @@ def get_url_content(url):
         return None
     return html
 
+
 def check_requirements():
     if os.name is not 'posix':
         print('This script currently only supports Unix-like OS\'s.')
         exit(1)
 
+
 def clear_screen():
     os.system('clear')
+
 
 def check_urls(urls):
     for url in urls:
@@ -83,6 +91,7 @@ def check_urls(urls):
             print(Prompter(url).success())
         else:
             print(Prompter(url).error())
+
 
 def get_urls(bsObj):
     bs_links = bsObj.findAll('a')
@@ -98,4 +107,6 @@ def get_urls(bsObj):
         exit(1)
     return links
 
-main(sys.argv)
+
+if __name__ == '__main__':
+    main(sys.argv)
