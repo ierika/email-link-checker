@@ -44,7 +44,7 @@ def main(args):
         print('Please provide a URL or a file')
         exit(1)
     bsObj = None
-    if args.startswith('http://'):
+    if args.startswith('http://') or args.startswith('https://'):
         print(Prompter('Checking links from a URL').message())
         html = get_url_content(args)
     elif os.path.isfile(args):
