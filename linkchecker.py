@@ -177,7 +177,7 @@ class Main:
         Uses a set() data type so we can make sure that -
         there's no duplicates in the URL list.
         '''
-        pattern = '((https|http)://[\\w\\d\\.\\=\\#\\_\\+\\!\\&\\%\\/\\?\\-]+)'
+        pattern = '((https|http)://[\w\d\.\=\#\_\+\!\&\%\/\?\-]+)'
         matches = re.findall(pattern, file_contents)
         urls = set()
         if matches:
