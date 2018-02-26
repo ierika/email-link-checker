@@ -152,38 +152,35 @@ class Main:
     def parse_html_urls(self, file_contents):
         '''
         Looks for all anchor tags with an absolute URL in an HTML doc.
-
-        Uses a set() data type so we can make sure that -
-        there's no duplicates in the URL list.
         '''
         bsObj = BeautifulSoup(file_contents, "html.parser")
         bs_links = bsObj.findAll('a')
-        links = set()
+        urls = []
         if len(bs_links) > 0:
             for bs_link in bs_links:
                 if bs_link.has_attr('href'):
                     link = bs_link['href']
                     if link.startswith(self.allowed_protocols):
-                        links.add(link.strip())
+                        if link not in urls:
+                            urls.append(link.strip())
         else:
             print('This HTML does not contain any links.')
             exit(1)
-        return links
+        return tuple(urls)
 
     def parse_text_urls(self, file_contents):
         '''
         Parses text file for absolute URLs
-
-        Uses a set() data type so we can make sure that -
-        there's no duplicates in the URL list.
         '''
         pattern = '((https|http)://[\w\d\.\=\#\_\+\!\&\%\/\?\-]+)'
         matches = re.findall(pattern, file_contents)
-        urls = set()
+        urls = []
         if matches:
             for match in matches:
-                urls.add(match[0])
-        return urls
+                url = match[0]
+                if url not in urls:
+                    urls.append(url)
+        return tuple(urls)
 
 
 if __name__ == '__main__':
