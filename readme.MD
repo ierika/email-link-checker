@@ -1,15 +1,6 @@
 A simple command-line link checker.
-It could only check only one HTML page at a time, to avoid chaos.
+It could only check only one HTML or text email at a time.
 
-What it does are:
-- Checks all anchor tags in an HTML document (from file or a URL).
-- Opens the link with an error in the browser, so we could double check if it is
-  really working or not.
-
-This tool will also be used in Email Alert Helper tool. Once integrated, this repo will be erased.
-
-Working but still undergoing enhancements.
-Support for non-HTML docs will also be added.
 Supports HTTPS if certificates are installed.
 
 
