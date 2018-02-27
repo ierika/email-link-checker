@@ -159,10 +159,10 @@ class Main:
         if len(bs_links) > 0:
             for bs_link in bs_links:
                 if bs_link.has_attr('href'):
-                    link = bs_link['href']
+                    link = bs_link['href'].strip()
                     if link.startswith(self.allowed_protocols):
                         if link not in urls:
-                            urls.append(link.strip())
+                            urls.append(link)
         else:
             print('This HTML does not contain any links.')
             exit(1)
