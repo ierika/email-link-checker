@@ -172,7 +172,7 @@ class Main:
         '''
         Parses text file for absolute URLs
         '''
-        pattern = '((https|http)://[\w\d\.\=\#\_\+\!\&\%\/\?\-]+)'
+        pattern = r'((https|http)://[\w\d\.\=\#\_\+\!\&\%\/\?\-]+)'
         matches = re.findall(pattern, file_contents)
         urls = []
         if matches:
