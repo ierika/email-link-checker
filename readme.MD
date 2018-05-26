@@ -1,8 +1,10 @@
-A simple command-line link checker.
-It could only check only one HTML or text email at a time.
+# Email Link Checker
 
-Supports HTTPS if certificates are installed.
-
+A simple command-line link checker to aid my work.
+It simply checks for dead links or links that returns anything other than HTTP 200.
+All links that failed will be automatically opened in a browser.
+It could only check one HTML or text email at a time.
+You could chain commands if you want to check multiple files.
 
 ## How to install
 
