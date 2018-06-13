@@ -1,10 +1,16 @@
-# HTML/Text Email Link Checker
+# Email Link Checker
 
 A simple command-line link checker for HTML and text emails.
 That means it will only look for absolute URLs.
 
 Supports HTTPS if certificates are installed.
+>>>>>>> 0a74b13a405e331199c947d1a184881714c564cc
 
+A simple command-line link checker to aid my work.
+It simply checks for dead links or links that returns anything other than HTTP 200.
+All links that failed will be automatically opened in a browser.
+It could only check one HTML or text email at a time.
+You could chain commands if you want to check multiple files.
 
 ## How to install
 

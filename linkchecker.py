@@ -7,7 +7,7 @@ It only looks for absolute/full URL's in an HTML web page or text file.
 This script accepts a URL and a file as argument.
 Any HTTP response that is not an OK response (HTTP 200) will be considered,
 an error.
-All URLs that had error will be automatically opened in a browser...
+All URLs that had error will be automatically opened in a browser -
 so it can be double checked.
 """
 
