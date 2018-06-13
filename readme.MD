@@ -1,5 +1,7 @@
-A simple command-line link checker.
-It could only check only one HTML or text email at a time.
+# HTML/Text Email Link Checker
+
+A simple command-line link checker for HTML and text emails.
+That means it will only look for absolute URLs.
 
 Supports HTTPS if certificates are installed.
 
@@ -36,12 +38,22 @@ $ source ~/.bash_profile
 ```
 
 After the PATH has been exported. We could now execute it anywhere.
-
-```shell
-$ linkchecker /path/to/html/or/link/to/page
+For URLs:
+```bash
+$ linkchecker https://www.domain.com/email_1.html https://www.domain.com/email_2.html
 ```
 
-...or, Just execute it directly.
+For files:
+```shell
+$ linkchecker /path/to/html/or/link/to/page /path/to/another/file
+```
+
+It also support wild cards.
+```bash
+$ linkchecker /path/to/html/*.html
+```
+
+You can also execute it directly by running it through `python3` command.
 
 ```shell
 $ cd /path/to/linkchecker/directory
