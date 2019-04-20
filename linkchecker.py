@@ -4,9 +4,11 @@
 HTML and text email link checker.
 
 It only looks for absolute/full URL's in an HTML web page or text file.
-This script accepts a URL and a file as argument.
+
+This script accepts an URL or a file as argument.
 Any HTTP response that is not an OK response (HTTP 200) will be considered,
 an error.
+
 All URLs that had error will be automatically opened in a browser -
 so it can be double checked.
 """
@@ -52,9 +54,6 @@ class Main:
     allowed_mimetypes = ('text/plain', 'text/html')
 
     def __init__(self, args=None):
-        # Check requirements
-        self.check_requirements()
-
         # If the user provided no arguments, spit out an error.
         # If arguments were provided slice the first argument off.
         # The first argument will be this script and we don't need that
@@ -67,6 +66,7 @@ class Main:
         for arg in args:
             # Reset URL list on each iteration
             urls = None
+
             if arg.startswith(self.allowed_protocols):
                 # Process URL
                 print(Prompter('Checking links from a URL').message())
@@ -74,7 +74,7 @@ class Main:
                 urls = self.parse_html_urls(html)
             elif os.path.isfile(arg):
                 # Process files
-                mime, encoding = self.guess_mimetype(arg)
+                mime, _ = self.guess_mimetype(arg)
                 print(
                     Prompter(
                         'Checking links from a {} file: {}'.format(mime, arg)
@@ -126,6 +126,7 @@ class Main:
         Anything other than HTTP 200 is considered not ok.
         """
         html = None
+
         # noinspection PyBroadException
         try:
             html = urlopen(url)
@@ -135,23 +136,8 @@ class Main:
         except Exception:
             webbrowser.open_new_tab(url)
             return None
+
         return html
-
-    @staticmethod
-    def check_requirements():
-        """
-        Checks whether the script is compatible with the OS
-        """
-        if os.name is not 'posix':
-            print('This script currently only supports Unix-like OS\'s.')
-            exit(1)
-
-    @staticmethod
-    def clear_screen():
-        """
-        Clears console screen
-        """
-        os.system('clear')
 
     def check_urls(self, urls):
         """
@@ -173,6 +159,7 @@ class Main:
         soup = BeautifulSoup(file_contents, "html.parser")
         bs_links = soup.findAll('a')
         urls = []
+
         if len(bs_links) > 0:
             for bs_link in bs_links:
                 if bs_link.has_attr('href'):
@@ -183,6 +170,7 @@ class Main:
         else:
             print('This HTML does not contain any links.')
             exit(1)
+
         return tuple(urls)
 
     @staticmethod
@@ -190,14 +178,16 @@ class Main:
         """
         Parses text file for absolute URLs
         """
-        pattern = r'((https|http)://[\w\d\.\=\#\_\+\!\&\%\/\?\-]+)'
+        pattern = r'((https|http)://[\w\.\=\#\_\+\!\&\%\/\?\-]+)'
         matches = re.findall(pattern, file_contents)
         urls = []
+
         if matches:
             for match in matches:
                 url = match[0]
                 if url not in urls:
                     urls.append(url)
+
         return tuple(urls)
 
 
